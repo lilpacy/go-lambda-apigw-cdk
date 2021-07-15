@@ -1,18 +1,12 @@
-import * as sns from '@aws-cdk/aws-sns';
-import * as subs from '@aws-cdk/aws-sns-subscriptions';
-import * as sqs from '@aws-cdk/aws-sqs';
 import * as cdk from '@aws-cdk/core';
+import {LambdaStack} from "./lambda-stack";
+import {ApiStack} from "./api-stack";
 
 export class CdkGolangTestStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
-
-    const queue = new sqs.Queue(this, 'CdkGolangTestQueue', {
-      visibilityTimeout: cdk.Duration.seconds(300)
-    });
-
-    const topic = new sns.Topic(this, 'CdkGolangTestTopic');
-
-    topic.addSubscription(new subs.SqsSubscription(queue));
+    const app = new cdk.App();
+    const apiStack = new ApiStack(app, 'ApiStack');
+    new LambdaStack(app, 'LambdaStack',{restApi: apiStack.stackProps.restApi});
   }
 }
