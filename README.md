@@ -1,3 +1,10 @@
+## セットアップ
+
+```
+npm i
+# ENOENT: no such file or directoryで怒られる場合はnodeのバージョンを上げる
+```
+
 ## ローカル実行
 
 ```shell
