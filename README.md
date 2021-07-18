@@ -3,6 +3,8 @@
 ```sh
 npm i
 # ENOENT: no such file or directoryで怒られる場合はnodeのバージョンを上げる
+cd lambda
+go mod tidy
 ```
 
 ## ローカル実行
