@@ -1,13 +1,14 @@
 ## セットアップ
 
-```
+```sh
 npm i
 # ENOENT: no such file or directoryで怒られる場合はnodeのバージョンを上げる
 ```
 
 ## ローカル実行
 
-```shell
+```sh
+npm run build # linux向けにバイナリビルド
 # sam local invoke ResourceName -t path/to/Stack.template.json
 sam local invoke GoFunction -t cdk.out/LambdaStack.template.json
 ```
@@ -16,7 +17,6 @@ sam local invoke GoFunction -t cdk.out/LambdaStack.template.json
 
 ```sh
 npm run build # linux向けにバイナリビルド
-npx cdk synth
 npx cdk diff
 npx cdk deploy
 ```
