@@ -11,8 +11,14 @@ go mod tidy
 
 ```sh
 npm run build # linux向けにバイナリビルド
+
+# lambda単体実行
 # sam local invoke ResourceName -t path/to/Stack.template.json
 sam local invoke GoFunction -t cdk.out/LambdaStack.template.json
+
+# api-gatewayとセットで実行
+# sam local start-api -t path/to/Stack.template.json
+sam local start-api -t cdk.out/ApiStack.template.json
 ```
 
 ## デプロイ手順
@@ -27,6 +33,6 @@ npx cdk deploy
 
 ## リファレンス
 
-- [sam local invoke](https://docs.aws.amazon.com/ja_jp/serverless-application-model/latest/developerguide/sam-cli-command-reference-sam-local-invoke.html)  
-- [aws cdk workshop](https://cdkworkshop.com/20-typescript.html)  
+- [sam local invoke](https://docs.aws.amazon.com/ja_jp/serverless-application-model/latest/developerguide/sam-cli-command-reference-sam-local-invoke.html)
+- [aws cdk workshop](https://cdkworkshop.com/20-typescript.html)
 - [AWS CDKでAPI Gateway+Lambdaを作成する際のベストなスタック構成について](https://dev.classmethod.jp/articles/apig-and-lambda-best-stack-configuration-with-aws-cdk/)  
