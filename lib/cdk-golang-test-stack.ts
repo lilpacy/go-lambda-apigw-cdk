@@ -7,6 +7,6 @@ export class CdkGolangTestStack extends cdk.Stack {
     super(scope, id, props);
     const app = new cdk.App();
     const apiStack = new ApiStack(app, 'ApiStack');
-    new LambdaStack(app, 'LambdaStack',{restApi: apiStack.stackProps.restApi});
+    const lambaStack = new LambdaStack(app, 'LambdaStack',{restApi: apiStack.stackProps.restApi});
   }
 }
