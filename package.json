@@ -5,7 +5,7 @@
     "cdk-golang-test": "bin/cdk-golang-test.js"
   },
   "scripts": {
-    "build": "tsc; npx cdk synth; cd lambda; GOOS=linux go build -o bin/main",
+    "build": "cd lambda; GOOS=linux go build -o bin/main; cd ../; tsc; npx cdk synth",
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk"
